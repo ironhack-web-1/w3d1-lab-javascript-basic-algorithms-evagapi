@@ -57,3 +57,17 @@ function wordCounter (text) {
 };
 
 console.log(wordCounter(paragraphs));
+
+function howManyOccurences (text, word) {
+  let splitedText = text.split(" ");
+  let collectedOccurences = [];
+
+  for (let occurence of splitedText) {
+    if (occurence === word) {
+      collectedOccurences.push(word);
+    }
+  }
+  return collectedOccurences.length;
+};
+
+console.log(howManyOccurences(paragraphs, "et"));
