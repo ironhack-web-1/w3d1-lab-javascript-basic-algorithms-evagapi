@@ -75,7 +75,7 @@ console.log(howManyOccurences(paragraphs, "et"));
 // Bonus 2
 
 //let phraseToCheck = "Amor, Roma";
-let phraseToCheck = "A man, a plan, a canal, Panama!";
+let phraseToCheck = "hola";
 
 function spacesRemover(string) {
   let stringWithoutSpaces = "";
@@ -102,18 +102,15 @@ function isAPalindrome(string) {
   let readyToCheck = specialCharactersRemover(withoutSpaces).toLocaleLowerCase();
   let i = 0;
   let j = string.length - 1;
-  while (i) {
+  while (i < string.length) {
     if (string[i] !== string[j]) {
       return false;
     }
     j--;
     i++;
   }
-  
-  for (let i = 0; i < readyToCheck.length; ++i) {
-    
+    return true;  
   }
-  return true;
-};
+  
 
 console.log(isAPalindrome(phraseToCheck));
