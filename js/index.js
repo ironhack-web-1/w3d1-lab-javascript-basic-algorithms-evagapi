@@ -71,3 +71,49 @@ function howManyOccurences (text, word) {
 };
 
 console.log(howManyOccurences(paragraphs, "et"));
+
+// Bonus 2
+
+//let phraseToCheck = "Amor, Roma";
+let phraseToCheck = "A man, a plan, a canal, Panama!";
+
+function spacesRemover(string) {
+  let stringWithoutSpaces = "";
+  for (let i = 0; i < string.length; ++i) {
+    if (string[i] !== " ") {
+      stringWithoutSpaces += string[i];
+    }
+  }
+  return stringWithoutSpaces;
+}
+
+function specialCharactersRemover(string) {
+ let newString = "";
+ for (let i = 0; i < string.length; i++) {
+   if (string[i] !== "," || string[i] !== "!") {
+     newString += string[i];
+   }
+ }
+  return newString;
+};
+
+function isAPalindrome(string) {
+  let withoutSpaces = spacesRemover(string);
+  let readyToCheck = specialCharactersRemover(withoutSpaces).toLocaleLowerCase();
+  let i = 0;
+  let j = string.length - 1;
+  while (i) {
+    if (string[i] !== string[j]) {
+      return false;
+    }
+    j--;
+    i++;
+  }
+  
+  for (let i = 0; i < readyToCheck.length; ++i) {
+    
+  }
+  return true;
+};
+
+console.log(isAPalindrome(phraseToCheck));
