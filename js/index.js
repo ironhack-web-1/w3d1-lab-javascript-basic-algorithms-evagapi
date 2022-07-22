@@ -77,41 +77,29 @@ console.log(howManyOccurences(paragraphs, "et"));
 
 // Bonus 2
 
-// let phraseToCheck = "Amor, Roma";
+//let phraseToCheck = "Amor, Roma";
 let phraseToCheck = "A man, a plan, a canal, Panama!";
+//let phraseToCheck = "race car";
 
-function spacesRemover(string) {
-  let stringWithoutSpaces = "";
-  for (let i = 0; i < string.length; ++i) {
-    if (string[i] !== " ") {
-      stringWithoutSpaces += string[i];
-    }
-  }
-  return stringWithoutSpaces;
-}
-
-function specialCharactersRemover(string) {
-  let newString = "";
-  for (let i = 0; i < string.length; i++) {
-    const letter = string[i];
-    if (letter !== "," && letter !== "!") {
-      newString += letter;
-    }
-  }
-  return newString;
+function isSpecialChar(character) {
+  return [",", " ", "!"].includes(character);
 }
 
 function isAPalindrome(string) {
-  let withoutSpaces = spacesRemover(string);
-  let readyToCheck = specialCharactersRemover(withoutSpaces).toLowerCase();
-
-  console.log(readyToCheck);
-
   let i = 0;
-  let j = readyToCheck.length - 1;
+  let j = string.length - 1;
+  let lowerCaseString = string.toLowerCase();
+  //let letter = RegExp(/[a-zA-Z]/);
 
-  while (i < readyToCheck.length) {
-    if (readyToCheck[i] !== readyToCheck[j]) {
+  while (i < j) {
+    if (isSpecialChar(lowerCaseString[i])) {
+      i++;
+      //console.log("i", lowerCaseString[i]);
+    } else if (isSpecialChar(lowerCaseString[j])) {
+      j++;
+      //console.log("j", lowerCaseString[i]);
+    } else if (lowerCaseString[i] !== lowerCaseString[j]) {
+      //console.log("i", lowerCaseString[i], "j", lowerCaseString[j]);
       return false;
     }
     j--;
@@ -121,3 +109,4 @@ function isAPalindrome(string) {
 }
 
 console.log(isAPalindrome(phraseToCheck));
+//console.log(isSpecialChar(" "));
