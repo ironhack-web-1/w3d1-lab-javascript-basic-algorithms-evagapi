@@ -89,24 +89,20 @@ function isAPalindrome(string) {
   let i = 0;
   let j = string.length - 1;
   let lowerCaseString = string.toLowerCase();
-  //let letter = RegExp(/[a-zA-Z]/);
 
   while (i < j) {
     if (isSpecialChar(lowerCaseString[i])) {
       i++;
-      //console.log("i", lowerCaseString[i]);
     } else if (isSpecialChar(lowerCaseString[j])) {
-      j++;
-      //console.log("j", lowerCaseString[i]);
+      j--;
     } else if (lowerCaseString[i] !== lowerCaseString[j]) {
-      //console.log("i", lowerCaseString[i], "j", lowerCaseString[j]);
       return false;
+    } else {
+      j--;
+      i++;
     }
-    j--;
-    i++;
   }
   return true;
 }
 
 console.log(isAPalindrome(phraseToCheck));
-//console.log(isSpecialChar(" "));
