@@ -1,5 +1,8 @@
 // Iteration 3: Loops
 
+let hacker1 = "John";
+let hacker2 = "Julia";
+
 let capitalized = "";
 for (let i = 0; i < hacker1.length; i++) {
   capitalized += hacker1[i] + " ";
